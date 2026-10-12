@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Renaissance Essen – Foot du Dimanche</title>
+<meta name="theme-color" content="#c8102e">
+<link rel="icon" href="/logo.jpg">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main>
+<div class="hero"><img src="/logo.jpg" alt="Logo Renaissance Essen"><div><h1>Renaissance Essen</h1><div class="mut">Foot du Dimanche</div></div></div>
+<div class="badge" id="badge">Chargement…</div>
+<nav id="nav">
+  <button data-t="stats" class="on">Classements</button>
+  <button data-t="sun">Dimanches</button>
+  <button data-t="fines">Amendes 💶</button>
+  <button data-t="add" id="tabAdd" class="adm">Ajouter</button>
+</nav>
+<details class="card" id="xcard"><summary>📄 Exporter en PDF</summary>
+  <label>Dimanche à exporter</label><select id="xd"></select>
+  <button class="btn" id="pdfDay">PDF de ce dimanche</button>
+  <button class="btn sec" id="pdfAll">PDF de tous les dimanches</button>
+</details>
+
+<section id="stats"></section>
+<section id="sun" class="hide"></section>
+<section id="fines" class="hide">
+  <button class="btn adm" id="fplus">＋ Ajouter une amende</button>
+  <div class="card hide" id="fform">
+    <h2 id="ft">Nouvelle amende</h2>
+    <label>Nom</label><input id="fn">
+    <label>Type d'amende</label><input id="ftype" placeholder="Retard, carton, absence…">
+    <div class="row">
+      <div><label>Date</label><input type="date" id="fd"></div>
+      <div><label>Montant (€)</label><input type="number" id="fa" min="0" step="0.5" placeholder="5"></div>
+    </div>
+    <label>Détail (facultatif)</label><input id="fdet" placeholder="Ex : arrivé à 9h40">
+    <div class="mut" id="fdue" style="margin-top:6px"></div>
+    <button class="btn" id="fadd">Enregistrer</button>
+    <button class="btn sec" id="fcanc">Annuler</button>
+  </div>
+  <div id="flist"></div>
+</section>
+
+<section id="add" class="hide adm">
+  <div class="card">
+    <h2 id="mt">Nouveau match</h2>
+    <label>Dimanche</label><input type="date" id="d">
+    <div class="row">
+      <div><label>Équipe A</label><input id="a" placeholder="Les Bleus"></div>
+      <div><label>Équipe B</label><input id="b" placeholder="Les Rouges"></div>
+    </div>
+    <div class="row">
+      <div><label>Score A</label><input type="number" id="sa" min="0" value="0"></div>
+      <div><label>Score B</label><input type="number" id="sb" min="0" value="0"></div>
+    </div>
+    <label>Buteurs et nombre de buts</label><div id="scl"></div>
+    <button class="btn sec" id="addS" type="button">+ Ajouter un buteur</button>
+    <button class="btn" id="addM">Enregistrer le match</button>
+    <button class="btn sec hide" id="canc">Annuler la modification</button>
+  </div>
+  <div class="card">
+    <h2>Distinctions du dimanche</h2>
+    <label>Dimanche</label><input type="date" id="d2">
+    <label>Meilleur joueur</label><input id="mvp">
+    <label>Meilleur capitaine</label><input id="cap">
+    <label>Meilleur gardien</label><input id="gk">
+    <button class="btn" id="addA">Enregistrer</button>
+  </div>
+  <div class="card"><button class="btn sec" id="rst" style="margin:0">Tout effacer</button></div>
+</section>
+
+<div class="card" id="login">
+  <div class="vo">
+    <button class="btn sec" id="loginBtn" style="margin:0">🔒 Espace administrateur</button>
+    <div id="loginForm" class="hide">
+      <label>Mot de passe</label><input type="password" id="pw" autocomplete="current-password">
+      <button class="btn" id="pwOk">Se connecter</button>
+    </div>
+  </div>
+  <div class="adm"><button class="btn sec" id="logout" style="margin:0">Se déconnecter</button></div>
+</div>
+</main>
+<script src="/vendor/jspdf.umd.min.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>
